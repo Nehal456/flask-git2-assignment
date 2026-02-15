@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+
+<body>
+    <h2> Registration</h2>
+
+    {% if error %}
+
+    <p style="color:red">{{error}}</p>
+    {% endif %}
+
+    <Form method="post", action="/submit">
+        <input type="text" name="name" placeholder="Enter Your Name" required><br><br>
+        <input type="text" name="email" placeholder="Enter Your Email" required><br><br>
+        <input type="submit" value="Submit">
+
+    </form>
+</body>
+</html>
