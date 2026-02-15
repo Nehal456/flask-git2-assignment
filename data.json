@@ -1,12 +1,7 @@
-[
-  {
-    "id": 1,
-    "name": "Nehal",
-    "role": "Developer"
-  },
-  {
-    "id": 2,
-    "name": "Aman",
-    "role": "Tester"
-  }
-]
+{
+  "project": "Flask Git Assignment",
+  "api_route": "/api",
+  "branch": "Nehal_new",
+  "status": "JSON updated Successfully",
+  "version": 2
+}
