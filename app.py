@@ -35,16 +35,23 @@ else:
 # --------------------------------------------------
 # PART 1: API Route (reads from backend file)
 # --------------------------------------------------
-@app.route("/api", methods=["GET"])
-def api_data():
-    try:
-        with open("data.json", "r") as file:
-            data = json.load(file)
-        return jsonify(data)
-    except Exception:
-        return jsonify({"error": "data.json not found"}), 404
+@app.route("/submittodoitem", methods=["POST"])
+def submit_to-do_item():
+    item_name = request.form.get("itemName")
+    item_description = request.form.get("itemDescription")
 
+    if not item_name or not item_description:
+        return jsonify({"error": "Both fields are required"}), 400
 
+    todo_item = {
+        "itemName": item_name,
+        "itemDescription": item_description
+    }   
+
+    
+    db.todo_item.insert_one(todo_item)
+
+    return jsonify({"message": "To-Do item submitted successfully!"})
 # --------------------------------------------------
 # Home Route – Form Page
 # --------------------------------------------------
